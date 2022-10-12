@@ -1,0 +1,136 @@
+body {
+    font-family: sans-serif;
+    /* width: 380px; */
+    /* margin: 5px auto; */
+}
+
+h1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 5px;
+    padding: 10px;
+    background-color: lightblue;
+    border-radius: 10px;
+}
+
+h2 {
+    margin: 5px;
+}
+
+p, label{
+    margin: 5px; 
+}
+
+form {
+    margin: 5px;
+}
+
+.todo-task-input {
+    padding: 3px;
+    height: 25px;
+    width: 300px;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+.todo-date-input {
+    padding: 3px;
+    height: 25px;
+    width: 120px;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+.todo-add {
+    padding: 3px;
+    height: 33px;
+    width: 80px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    background-color: green;
+    color: white;
+}
+
+.all-todo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.todo-section {
+    /* height: 200px; */
+    /* display: flex; */
+    width: 100%;
+    margin: 10px 5px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px 1px rgba(12,12,12,0.2);
+  }
+
+.todo-delete {
+    width: 0px;
+    color: white;
+}
+
+.todo-section-heading {
+    display: flex;
+    align-items: center;
+    width: max-content;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+}
+
+.todo-item:hover{ 
+    background-color: lightblue;
+    border-radius: 3px; 
+}
+
+.todo-item:hover .todo-delete {
+    width: 12px;
+}
+
+.todo-check {
+    margin-right: 5px;
+}
+
+.todo-item-due_date {
+    margin-left: 0px;
+    font-size: 12px;
+    color: #777;
+}
+
+.home-div {
+    display: flex;
+    width: 100%;
+    margin: 15px 700px;
+}
+
+.home {
+    width: fit-content;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px 1px rgba(12,12,12,0.2);
+}
+
+.login-button, .signup-button {
+    margin: 10px;
+    padding: 3px;
+    height: 33px;
+    width: 200px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    background-color: green;
+    color: white;
+
+}
+
+.current-user-name {
+    margin-right: 8px;
+    align-items: center;
+    font-size: 15px;
+    /* justify-content: space-between; */
+}

@@ -1,0 +1,28 @@
+<h1><div>Todo Manager</div> <div class="current-user-name"><%= current_user.name %> <%= link_to "logout", "/logout", method:"delete" %></div></h1>
+
+<%= form_tag do %>
+     <form action="/todos" method="post">
+        <input class="todo-task-input" type="text" name="task_name" id="add-todo-item" placeholder="What's next?">
+        <input class="todo-date-input" type="date" name="due_date" id="add-todo-date">
+        <button class="todo-add" type="submit">Add</button>
+    </form>
+<% end %>
+
+    <div class="all-todo">
+        <%= render partial: "todo-section", locals:{
+            section_title: "Overdue", 
+            todos: Todo.user(current_user.user_id).overdue
+            }%>
+        <%= render partial: "todo-section", locals:{
+            section_title: "Due Today",
+            todos: Todo.user(current_user.user_id).due_today
+            }%>
+        <%= render partial: "todo-section", locals:{
+            section_title: "Due Later",
+            todos: Todo.user(current_user.user_id).due_later
+            }%>
+        <%= render partial: "todo-section", locals:{
+            section_title: "Done",
+            todos: Todo.user(current_user.user_id).task_done
+        }%>
+    </div>

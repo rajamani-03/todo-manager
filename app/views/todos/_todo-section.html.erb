@@ -1,0 +1,33 @@
+<section class="todo-section">
+    <div class="todo-section-heading">
+        <h2><%=section_title%></h2>
+        <p>(<%=todos.count%>)</p>
+    </div>
+    <hr>
+    <% todos.all.each do |todo|%>
+        <div class="todo-item">
+
+            <%= form_with(url: "todos/#{todo.todo_id}", method: "put") do %>
+                <label> 
+                    <input 
+                    class="todo-check" 
+                    type="checkbox" 
+                    name="is_done" 
+                    value="done"
+                    onclick="this.form.submit()"
+                    <%= todo.is_done ? "checked": "" %>
+                    />
+                    <span> <%= section_title!="Done" ? todo.task : "" %> </span>
+                    <s> <%= section_title=="Done" ? todo.task : "" %> </s>
+                </label>    
+            <% end %>
+
+            <p class="todo-item-due_date"><%= section_title!="Due Today" ? "("+todo.due_date.to_s(:short)+")" : "" %></p>
+
+            <%= form_with(url: "todos/#{todo.todo_id}", method: "delete") do %>
+                <input class="todo-delete" type="image" src="http://cdn.onlinewebfonts.com/svg/img_19169.png">
+            <% end %>
+
+        </div>
+    <% end %>
+</section>  

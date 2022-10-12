@@ -1,0 +1,15 @@
+<h1>Welcome to Todo Manager!</h1>
+<section class="home">
+
+    <%= form_with(url: "/login", method: "get", class: "home-form") do %>
+        <button class="login-button" type="submit">Login</button>
+    <% end %>
+
+    <%= form_with(url: "/users/new", method: "get", class: "home-form") do %>
+        <%# <button class="login-button" type="submit">Login</button>
+        <br> %>
+        <button class="signup-button" type="submit">Signup</button>
+        <%# <input class="login-button" type="button" value="Login">
+        <input class="signup-button" type="button" value="Signup"> %>
+    <% end %>
+</section>
