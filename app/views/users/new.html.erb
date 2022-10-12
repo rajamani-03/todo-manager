@@ -1,23 +1,23 @@
 <h1>Welcome to Todo Manager!</h1>
 
 <section class="user-new">
-    <p class="user-form-title">Sign up!</p>
+    <p class="user-form-title">SIGN UP</p>
     <%= form_with(url: "/users", method: "post", class: "home-form") do |form| %>
         <div class="form-user-input">
-            <p>Name:</p>
-            <%= form.text_field :name %>
+            <p class="field-title">Name:</p>
+            <input class="form-field" type="text" name="name" id="name" placeholder="Your Name" required>
         </div>
         <br>
         
         <div class="form-user -input">
-            <p>Email:</p>
-            <%= form.email_field  :email %>
+            <p class="field-title">Email:</p>
+            <input class="form-field" type="email" name="email" id="email" placeholder="example@email.com" required>
         </div>
         
         <br>
         <div class="form-user-input">
-            <p>Password:</p>
-            <%= form.password_field :password %>
+            <p class="field-title">Password:</p>
+            <input class="form-field" type="password" name="password" id="password" required>
         </div>
         <%= form.submit "Sign up", class: "user-form-submit"%>
     <% end %>   

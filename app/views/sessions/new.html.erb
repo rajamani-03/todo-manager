@@ -3,16 +3,15 @@
 <section class="user-new">
     
     <%= form_with(url: "/login", method: "post", class: "home-form") do |form| %> 
-        <p class="user-form-title">Sign in!</p>       
+        <p class="user-form-title">LOG IN</p>       
         <div class="form-user-input">
-            <p>Email:</p>
-            <input class="form-field" type="email" name="email" id="email">
+            <p class="field-title">Email:</p>
+            <input class="form-field" type="email" name="email" id="email" placeholder="example@email.com" required>
         </div>
-        
         <br>
         <div class="form-user-input">
-            <p>Password:</p>
-            <input class="form-field" type="password" name="password" id="password">
+            <p class="field-title">Password:</p>
+            <input class="form-field" type="password" name="password" id="password" required>
         </div>
         <%= form.submit "Sign in", class: "user-form-submit"%>
     <% end %>  

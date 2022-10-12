@@ -2,8 +2,8 @@
 
 <%= form_tag do %>
      <form action="/todos" method="post">
-        <input class="todo-task-input" type="text" name="task_name" id="add-todo-item" placeholder="What's next?">
-        <input class="todo-date-input" type="date" name="due_date" id="add-todo-date">
+        <input class="todo-task-input" type="text" name="task_name" id="add-todo-item" placeholder="What's next?" required>
+        <input class="todo-date-input" type="date" name="due_date" id="add-todo-date" required>
         <button class="todo-add" type="submit">Add</button>
     </form>
 <% end %>
