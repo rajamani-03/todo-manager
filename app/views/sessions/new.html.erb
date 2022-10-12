@@ -3,7 +3,8 @@
 <section class="user-new">
     
     <%= form_with(url: "/login", method: "post", class: "home-form") do |form| %> 
-        <p class="user-form-title">LOG IN</p>       
+        <p class="user-form-title">LOG IN</p> 
+        <hr>      
         <div class="form-user-input">
             <p class="field-title">Email:</p>
             <input class="form-field" type="email" name="email" id="email" placeholder="example@email.com" required>
