@@ -22,10 +22,21 @@ class TodosController < ApplicationController
     def update
         id = params[:todo_id]
         is_done = params[:is_done]
+
+        # find the todo with the id which corresponds to the the logged in user
         # todo = Todo.where(user_id: current_user.user_id).find(id)
         todo = Todo.user(current_user.user_id).find(id)
+        
+
+        # if the task is done now and it has repeat after value greator than 0 then update the due date
+        if todo.is_done == false and todo.repeat_after > 0
+            todo.due_date = (Date.today + todo.repeat_after)
+        end
+
+        # toggle the done status
         is_done = (is_done=="done") ?  true : false
         todo.is_done = is_done
+
         todo.save!
         redirect_to todos_path
     end
