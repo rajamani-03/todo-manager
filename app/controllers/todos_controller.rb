@@ -11,7 +11,9 @@ class TodosController < ApplicationController
             user_id: current_user.user_id, 
             task: task_name,
             due_date: due_date,
-            is_done: false)
+            is_done: false,
+            priority: params[:priority],
+            repeat_after: params[:repeat_after]!= nil ? params[:repeat_after] : 0 )
         redirect_to todos_path
         # response_text = "Ne w Todo created with ID: #{new_todo.id}"
         # render plain: "response_text"

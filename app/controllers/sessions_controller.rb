@@ -2,6 +2,11 @@ class SessionsController < ApplicationController
     skip_before_action :ensure_user_logged_in 
 
     def new   
+        if current_user
+            redirect_to todos_path
+        else
+            render "new"
+        end
     end
 
     def create

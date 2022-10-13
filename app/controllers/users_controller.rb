@@ -6,7 +6,11 @@ class UsersController < ApplicationController
     end
 
     def new
-        render "users/new"
+        if current_user
+            redirect_to todos_path
+        else
+            render "new"
+        end
     end
     
     def create

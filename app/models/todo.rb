@@ -25,4 +25,7 @@ class Todo < ApplicationRecord
     def self.user(user_id)
         all.where("user_id = ?", user_id)
     end
+    def self.order_by(column_name)
+        all.order(column_name)
+    end
 end

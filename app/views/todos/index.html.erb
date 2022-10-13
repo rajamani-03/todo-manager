@@ -4,6 +4,14 @@
      <form action="/todos" method="post">
         <input class="todo-task-input" type="text" name="task_name" id="add-todo-item" placeholder="What's next?" required>
         <input class="todo-date-input" type="date" name="due_date" id="add-todo-date" required>
+        <label> Priority: </label>
+        <select class="todo-priority-input" name="priority">
+            <option value="3"> Low Priority </option>
+            <option value="2"> Medium Priority </option>
+            <option value="1"> High Priority </option>
+        </select>
+        <label> Repeat after(days): </label>
+        <input class="todo-repeat-input" type="number" name="repeat_after">
         <button class="todo-add" type="submit">Add</button>
     </form>
 <% end %>
@@ -11,18 +19,18 @@
     <div class="all-todo">
         <%= render partial: "todo-section", locals:{
             section_title: "Overdue", 
-            todos: Todo.user(current_user.user_id).overdue
+            todos: Todo.user(current_user.user_id).order_by("priority").order_by("due_date").overdue
             }%>
         <%= render partial: "todo-section", locals:{
             section_title: "Due Today",
-            todos: Todo.user(current_user.user_id).due_today
+            todos: Todo.user(current_user.user_id).order_by("priority").order_by("due_date").due_today
             }%>
         <%= render partial: "todo-section", locals:{
             section_title: "Due Later",
-            todos: Todo.user(current_user.user_id).due_later
+            todos: Todo.user(current_user.user_id).order_by("priority").order_by("due_date").due_later
             }%>
         <%= render partial: "todo-section", locals:{
             section_title: "Done",
-            todos: Todo.user(current_user.user_id).task_done
+            todos: Todo.user(current_user.user_id).order_by("priority").order_by("due_date").task_done
         }%>
     </div>
