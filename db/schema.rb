@@ -17,6 +17,8 @@ ActiveRecord::Schema.define(version: 0) do
     t.date "due_date"
     t.boolean "is_done"
     t.bigint "user_id", unsigned: true
+    t.integer "priority"
+    t.integer "repeat_after"
     t.index ["user_id"], name: "FK_UserTodo"
   end
 
