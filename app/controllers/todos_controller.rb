@@ -31,11 +31,10 @@ class TodosController < ApplicationController
         # if the task is done now and it has repeat after value greator than 0 then update the due date
         if todo.is_done == false and todo.repeat_after > 0
             todo.due_date = (Date.today + todo.repeat_after)
+        else
+            is_done = (is_done=="done") ?  true : false
+            todo.is_done = is_done
         end
-
-        # toggle the done status
-        is_done = (is_done=="done") ?  true : false
-        todo.is_done = is_done
 
         todo.save!
         redirect_to todos_path

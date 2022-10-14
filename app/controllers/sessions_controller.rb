@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
         if current_user
             redirect_to todos_path
         else
-            render "new"
+            render "new", locals: {password_status: "enter password"}
         end
     end
 
@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
             session[:current_user_id] = user.user_id
             redirect_to todos_path
         else
-            render plain: "Incorrect password"
+            render "new", locals: {password_status: "incorrect password"}
        end 
     end
 

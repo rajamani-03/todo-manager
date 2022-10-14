@@ -19,3 +19,7 @@
     <p class="user-form-signup-text"> Don't have an account? <%= link_to "Sign up", "/users/new", method:"get" %> </p>  
 
 </section>
+
+<% if password_status == "incorrect password"%>
+<script> alert('Incorrect Password!');</script>
+<% end %>
